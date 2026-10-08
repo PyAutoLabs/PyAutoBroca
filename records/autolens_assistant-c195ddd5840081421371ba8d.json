@@ -1,0 +1,45 @@
+{
+  "assistant": "autolens_assistant",
+  "assistant_sha": "abafd86c041933a1f1869431c5821ffa3b5a00a1",
+  "benchmark": {
+    "id": "positions_initialised_inference",
+    "sha256": "f80d6a80f6bbf4dada023afae0a50264576db5dda05c71f4b51c8f794186c84c",
+    "version": "1"
+  },
+  "date_precision": "day",
+  "environment": {
+    "hardware": {
+      "cpu_count": 8,
+      "machine": "x86_64",
+      "python": "3.12.10",
+      "system": "Linux"
+    },
+    "harness_version": null,
+    "scorer_revision": null,
+    "stack": {
+      "autoarray": "2026.9.27.2",
+      "autofit": "2026.9.27.2",
+      "autolens": "2026.9.27.2",
+      "autonerves": "2026.9.27.2"
+    }
+  },
+  "harness": "claude-code",
+  "kind": "benchmark",
+  "metrics": {
+    "cost_usd": 2.4999054999999997,
+    "interventions": null,
+    "score": 0.0,
+    "wall_seconds": 1020.2
+  },
+  "model": "claude-fable-5-1",
+  "observed_at": "2026-10-02",
+  "reason": "compute_budget: 566.2s > 300s of compute",
+  "run_id": "autolens_assistant-c195ddd5840081421371ba8d",
+  "schema_version": 1,
+  "source": {
+    "path": "benchmarks/runs/positions_initialised_inference/2026-10-02_claude-fable-5-1_claude-code_3/meta.yaml",
+    "revision": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+    "sha256": "c7d4998d302328acfbf0e63ac90835ad38da43a775eaa9f642232be6551c74bb"
+  },
+  "status": "failed"
+}

@@ -1,0 +1,40 @@
+{
+  "assistant": "autolens_assistant",
+  "assistant_sha": "f690a31a219a5e41ac1b92b3f24249b620b1c1d0",
+  "benchmark": {
+    "id": "bootstrap-smoke",
+    "sha256": null,
+    "version": "1"
+  },
+  "date_precision": "day",
+  "environment": {
+    "hardware": "WSL2 laptop (Linux 5.10), CPU",
+    "harness_version": null,
+    "scorer_revision": null,
+    "stack": {
+      "autoarray": "2026.9.19.1",
+      "autofit": "2026.9.19.1",
+      "autolens": "2026.9.19.1 (installed by the agent from PyPI into <clone>/.venv, Python 3.12)",
+      "autonerves": "2026.9.19.1"
+    }
+  },
+  "harness": "claude-code",
+  "kind": "benchmark",
+  "metrics": {
+    "cost_usd": 0.667,
+    "interventions": null,
+    "score": 97.0,
+    "wall_seconds": null
+  },
+  "model": "claude-opus-5-5",
+  "observed_at": "2026-09-26",
+  "reason": "Historical rubric; no explicit pass gates",
+  "run_id": "autolens_assistant-8a86021d1fae71c6540269d2",
+  "schema_version": 1,
+  "source": {
+    "path": "benchmarks/runs/bootstrap-smoke/2026-09-26_claude-opus-5-5_claude-code/meta.yaml",
+    "revision": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+    "sha256": "247ef0b2b50c27db20dcf9f4e1a46d4e4e02a45a3ec4f673a897daccf3bd72c3"
+  },
+  "status": "unscored"
+}

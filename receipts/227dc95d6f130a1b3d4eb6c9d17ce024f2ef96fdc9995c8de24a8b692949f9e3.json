@@ -1,0 +1,109 @@
+{
+  "assistants": [
+    {
+      "assistant": "autocti_assistant",
+      "benchmarks": [],
+      "checks": {
+        "benchmark_definitions": false,
+        "benchmark_runner": true,
+        "instructions": true,
+        "skills": true
+      },
+      "dirty": false,
+      "errors": [],
+      "github": "PyAutoLabs/autocti_assistant",
+      "imported": 0,
+      "revision": "9c37c74dcf533dad98ceb22fe2fa09a52cfe00de",
+      "status": "collected"
+    },
+    {
+      "assistant": "autofit_assistant",
+      "benchmarks": [
+        "benchmarks/prompts/hard_sne_cosmology.md",
+        "benchmarks/prompts/medium_wrap_likelihood.md",
+        "benchmarks/prompts/teacher_workflow.md"
+      ],
+      "checks": {
+        "benchmark_definitions": true,
+        "benchmark_runner": true,
+        "instructions": true,
+        "skills": true
+      },
+      "dirty": true,
+      "errors": [],
+      "github": "PyAutoLabs/autofit_assistant",
+      "imported": 0,
+      "revision": "51719036ebc9654db3c4be4e6528e03ed7c2a056",
+      "status": "collected"
+    },
+    {
+      "assistant": "autogalaxy_assistant",
+      "benchmarks": [
+        "benchmarks/prompts/easy_cosj100020_imaging.md",
+        "benchmarks/prompts/hard_multi_band_pixelization.md",
+        "benchmarks/prompts/medium_mge_bulge_disk.md",
+        "benchmarks/prompts/teacher_workflow.md"
+      ],
+      "checks": {
+        "benchmark_definitions": true,
+        "benchmark_runner": true,
+        "instructions": true,
+        "skills": true
+      },
+      "dirty": false,
+      "errors": [],
+      "github": "PyAutoLabs/autogalaxy_assistant",
+      "imported": 0,
+      "revision": "e317f3815d7214a512042b1dcef3a9448a0f4bbc",
+      "status": "collected"
+    },
+    {
+      "assistant": "autolens_assistant",
+      "benchmarks": [
+        "benchmarks/prompts/bootstrap_smoke.md",
+        "benchmarks/prompts/conversational/README.md",
+        "benchmarks/prompts/conversational/easy_cosmos_web_ring.md",
+        "benchmarks/prompts/conversational/hard_group_multi.md",
+        "benchmarks/prompts/conversational/medium_slacs0946_subhalo.md",
+        "benchmarks/prompts/conversational/teacher_workflow.md",
+        "benchmarks/prompts/harness_smoke.md",
+        "benchmarks/prompts/oneshot/cosmos-web-ring-fit/card.md",
+        "benchmarks/prompts/oneshot/forward_model_consistency/card.md",
+        "benchmarks/prompts/oneshot/oneshot-smoke/card.md",
+        "benchmarks/prompts/oneshot/positions_initialised_inference/card.md"
+      ],
+      "checks": {
+        "benchmark_definitions": true,
+        "benchmark_runner": true,
+        "instructions": true,
+        "skills": true
+      },
+      "dirty": true,
+      "errors": [
+        {
+          "error": "metrics must be finite nonnegative numbers or null",
+          "path": "benchmarks/runs/bootstrap-smoke/2026-09-26_claude-opus-5-5_claude-code/meta.yaml"
+        },
+        {
+          "error": "metrics must be finite nonnegative numbers or null",
+          "path": "benchmarks/runs/bootstrap-smoke/2026-09-26_claude-opus-5-5_claude-code_2/meta.yaml"
+        },
+        {
+          "error": "metrics must be finite nonnegative numbers or null",
+          "path": "benchmarks/runs/bootstrap-smoke/2026-09-26_gpt-5.6-sol_codex/meta.yaml"
+        },
+        {
+          "error": "metrics must be finite nonnegative numbers or null",
+          "path": "benchmarks/runs/bootstrap-smoke/2026-09-26_gpt-5.6-sol_codex_2/meta.yaml"
+        }
+      ],
+      "github": "PyAutoLabs/autolens_assistant",
+      "imported": 10,
+      "revision": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+      "status": "partial"
+    }
+  ],
+  "attempted_at": "2026-10-08T12:57:59+00:00",
+  "refreshed_at": null,
+  "schema_version": 1
+}

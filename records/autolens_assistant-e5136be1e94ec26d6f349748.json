@@ -1,0 +1,46 @@
+{
+  "assistant": "autolens_assistant",
+  "assistant_sha": "1eb01f8900683b83d202b0503942620b2b5e44ed",
+  "benchmark": {
+    "id": "cosmos-web-ring-fit",
+    "sha256": "4e768e7f230f0438ccb91bec63446fd8c8674a06eeb202e22af4256c322bfdb4",
+    "version": "1"
+  },
+  "date_precision": "day",
+  "environment": {
+    "hardware": {
+      "accelerator": "NVIDIA GeForce RTX 2060 Max-Q (cuda:0), JAX_PLATFORMS=cuda, OMP_NUM_THREADS=8",
+      "cpu_count": 8,
+      "machine": "x86_64",
+      "python": "3.12.10",
+      "system": "Linux"
+    },
+    "harness_version": null,
+    "scorer_revision": null,
+    "stack": {
+      "autoarray": "not-installed",
+      "autofit": "not-installed",
+      "autolens": "not-installed",
+      "autonerves": "not-installed"
+    }
+  },
+  "harness": "claude-code",
+  "kind": "benchmark",
+  "metrics": {
+    "cost_usd": 0.7284608000000001,
+    "interventions": null,
+    "score": 0.0,
+    "wall_seconds": 209.7
+  },
+  "model": "claude-sonnet-5",
+  "observed_at": "2026-09-26",
+  "reason": "finished: no_result_json",
+  "run_id": "autolens_assistant-e5136be1e94ec26d6f349748",
+  "schema_version": 1,
+  "source": {
+    "path": "benchmarks/runs/cosmos-web-ring-fit/2026-09-26_claude-sonnet-5_claude-code_2/meta.yaml",
+    "revision": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+    "sha256": "30b9575760f26d4cbb0399498a7f6a87225c5315dc1d3abf53b95a92cd004dd4"
+  },
+  "status": "failed"
+}

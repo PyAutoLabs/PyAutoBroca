@@ -1,0 +1,30 @@
+{
+  "assistant": "autocti_assistant",
+  "assistant_sha": "9c37c74dcf533dad98ceb22fe2fa09a52cfe00de",
+  "benchmark": {
+    "id": "assistant-inventory",
+    "sha256": "cebc56f31f163249284eee34bdfe277ff2d332518956f14e92ae0970b57599fd",
+    "version": "1"
+  },
+  "date_precision": "second",
+  "environment": {},
+  "harness": "broca-inventory-v1",
+  "kind": "maintenance",
+  "metrics": {
+    "benchmark_definitions": 0,
+    "benchmark_runner": 1,
+    "instructions": 1,
+    "skills": 1
+  },
+  "model": null,
+  "observed_at": "2026-10-08T12:57:59+00:00",
+  "reason": "Committed-file inventory only; does not evaluate assistant responses or scientific correctness.",
+  "run_id": "autocti_assistant-inventory-473c195d0e9a0db12b9bda24",
+  "schema_version": 1,
+  "source": {
+    "path": "AGENTS.md",
+    "revision": "9c37c74dcf533dad98ceb22fe2fa09a52cfe00de",
+    "sha256": "473c195d0e9a0db12b9bda2448be73ccf7d20b622994d927aaf29e6a889990bf"
+  },
+  "status": "failed"
+}
