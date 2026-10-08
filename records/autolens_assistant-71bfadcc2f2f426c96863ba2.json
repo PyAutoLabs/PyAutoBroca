@@ -1,0 +1,45 @@
+{
+  "assistant": "autolens_assistant",
+  "assistant_sha": "da943d6339461d528bc1a7ae87b7ac164fa1901e",
+  "benchmark": {
+    "id": "oneshot-smoke",
+    "sha256": "a8b88b8dbe674653ea0385b8f795d2afd89709089401a6f5d6b6cc2cca108089",
+    "version": "1"
+  },
+  "date_precision": "day",
+  "environment": {
+    "hardware": {
+      "cpu_count": 4,
+      "machine": "x86_64",
+      "python": "3.12.3",
+      "system": "Linux"
+    },
+    "harness_version": null,
+    "scorer_revision": null,
+    "stack": {
+      "autoarray": "not-installed",
+      "autofit": "not-installed",
+      "autolens": "not-installed",
+      "autonerves": "not-installed"
+    }
+  },
+  "harness": "claude-code",
+  "kind": "benchmark",
+  "metrics": {
+    "cost_usd": 0.21959660000000003,
+    "interventions": null,
+    "score": 100.0,
+    "wall_seconds": 23.7
+  },
+  "model": "claude-sonnet-5",
+  "observed_at": "2026-09-17",
+  "reason": null,
+  "run_id": "autolens_assistant-71bfadcc2f2f426c96863ba2",
+  "schema_version": 1,
+  "source": {
+    "path": "benchmarks/runs/oneshot-smoke/2026-09-17_claude-sonnet-5_claude-code/meta.yaml",
+    "revision": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+    "sha256": "bb2464b374d5897a090f79bbbd0ee38d13f9b3a671595fb67b24862e1adff880"
+  },
+  "status": "passed"
+}

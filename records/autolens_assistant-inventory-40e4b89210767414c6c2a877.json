@@ -1,0 +1,30 @@
+{
+  "assistant": "autolens_assistant",
+  "assistant_sha": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+  "benchmark": {
+    "id": "assistant-inventory",
+    "sha256": "cebc56f31f163249284eee34bdfe277ff2d332518956f14e92ae0970b57599fd",
+    "version": "1"
+  },
+  "date_precision": "second",
+  "environment": {},
+  "harness": "broca-inventory-v1",
+  "kind": "maintenance",
+  "metrics": {
+    "benchmark_definitions": 1,
+    "benchmark_runner": 1,
+    "instructions": 1,
+    "skills": 1
+  },
+  "model": null,
+  "observed_at": "2026-10-08T12:57:59+00:00",
+  "reason": "Committed-file inventory only; does not evaluate assistant responses or scientific correctness.",
+  "run_id": "autolens_assistant-inventory-40e4b89210767414c6c2a877",
+  "schema_version": 1,
+  "source": {
+    "path": "AGENTS.md",
+    "revision": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+    "sha256": "40e4b89210767414c6c2a8776354e77e23ec36277794c43a767a7676398f4b71"
+  },
+  "status": "passed"
+}

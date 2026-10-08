@@ -1,0 +1,30 @@
+{
+  "assistant": "autofit_assistant",
+  "assistant_sha": "51719036ebc9654db3c4be4e6528e03ed7c2a056",
+  "benchmark": {
+    "id": "assistant-inventory",
+    "sha256": "cebc56f31f163249284eee34bdfe277ff2d332518956f14e92ae0970b57599fd",
+    "version": "1"
+  },
+  "date_precision": "second",
+  "environment": {},
+  "harness": "broca-inventory-v1",
+  "kind": "maintenance",
+  "metrics": {
+    "benchmark_definitions": 1,
+    "benchmark_runner": 1,
+    "instructions": 1,
+    "skills": 1
+  },
+  "model": null,
+  "observed_at": "2026-10-08T12:57:59+00:00",
+  "reason": "Committed-file inventory only; does not evaluate assistant responses or scientific correctness.",
+  "run_id": "autofit_assistant-inventory-b4f3ed23004b8720964a8535",
+  "schema_version": 1,
+  "source": {
+    "path": "AGENTS.md",
+    "revision": "51719036ebc9654db3c4be4e6528e03ed7c2a056",
+    "sha256": "b4f3ed23004b8720964a85350eb9611989267753cce9d50318240a4e76460c90"
+  },
+  "status": "passed"
+}

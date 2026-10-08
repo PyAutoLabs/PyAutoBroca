@@ -1,0 +1,40 @@
+{
+  "assistant": "autolens_assistant",
+  "assistant_sha": "f690a31a219a5e41ac1b92b3f24249b620b1c1d0",
+  "benchmark": {
+    "id": "bootstrap-smoke",
+    "sha256": null,
+    "version": "1"
+  },
+  "date_precision": "day",
+  "environment": {
+    "hardware": "WSL2 laptop (Linux 5.10), CPU",
+    "harness_version": null,
+    "scorer_revision": null,
+    "stack": {
+      "autoarray": "not-installed",
+      "autofit": "not-installed",
+      "autolens": "not-installed (scrubbed environment; the agent installed nothing)",
+      "autonerves": "not-installed"
+    }
+  },
+  "harness": "codex",
+  "kind": "benchmark",
+  "metrics": {
+    "cost_usd": null,
+    "interventions": null,
+    "score": 13.0,
+    "wall_seconds": null
+  },
+  "model": "gpt-5.6-sol",
+  "observed_at": "2026-09-26",
+  "reason": "Historical rubric; no explicit pass gates",
+  "run_id": "autolens_assistant-ce32c717f0500aa36c0129eb",
+  "schema_version": 1,
+  "source": {
+    "path": "benchmarks/runs/bootstrap-smoke/2026-09-26_gpt-5.6-sol_codex_2/meta.yaml",
+    "revision": "f46e296fa91a3c7cb5dfdba7f3cb7e34d5ce5465",
+    "sha256": "0f409fb23d44d6273a09ced56d6a5046cf4c73f78e3235f448c7efc49f01a7d7"
+  },
+  "status": "unscored"
+}
