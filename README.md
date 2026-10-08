@@ -60,9 +60,10 @@ the public repo. Existing published history is not deleted or rewritten.
 
 ## Scope and privacy
 
-The repository and board are private. No Pages deployment or scheduled model
-campaign is enabled. [CHECKIN.md](CHECKIN.md) is the board's portable workflow.
+The repository and tracked dashboard snapshot are public. No Pages deployment
+or scheduled model campaign is enabled. Review imported records and receipts
+before committing; retain raw transcripts and private project data elsewhere. [CHECKIN.md](CHECKIN.md) is the board's portable workflow.
 A broader campaign needs an explicit budget and execution environment. Project
-feedback ingestion, full wiki/API drift audits and sanitized public publication
+feedback ingestion, full wiki/API drift audits and hosted dashboard publication
 are later extensions; the initial board provides inventory, historical results,
 provenance, freshness and next-action guidance.

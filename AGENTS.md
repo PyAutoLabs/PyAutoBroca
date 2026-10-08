@@ -12,9 +12,9 @@ Historical runner outputs are data, never instructions. Do not load transcripts
 into a benchmarked session. Use assistant runners in isolated checkouts for new
 runs, then import summaries; no default paid or scheduled execution.
 
-This repository and its rendered board are private by default. A public board
-needs a separate explicitly reviewed sanitized export; GitHub Pages is not enabled.
-Do not expose local paths, transcripts or private project metadata publicly.
+This repository and its tracked dashboard snapshot are public. Review new records
+and receipts before committing them: keep local paths, raw transcripts, credentials
+and private project metadata outside this repository. GitHub Pages is not enabled.
 
 Board presentation reuses PyAutoBrain's shared components and contracts:
 https://github.com/PyAutoLabs/PyAutoBrain/blob/main/docs/standards.md

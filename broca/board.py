@@ -120,5 +120,5 @@ th,td{text-align:left;vertical-align:top;padding:.6rem}td code{overflow-wrap:any
             '<section id="attention"><h2>Next actions</h2><ul>' + ''.join(attention) + '</ul></section>' +
             '<section id="history"><h2>Evaluation history</h2>' + table + '</section>' +
             '<section id="maintenance"><h2>Maintenance</h2><p>Committed-file inventory; these checks do not establish response quality or scientific correctness.</p><ul>' + ''.join(maintenance) + '</ul></section>' +
-            '<footer>Private operational evidence · collection age and evaluation age are separate.</footer></main><script>' + theme.JS + '</script></body></html>')
+            '<footer>Assistant evaluation evidence · collection age and evaluation age are separate.</footer></main><script>' + theme.JS + '</script></body></html>')
     return theme.section_layout(page)

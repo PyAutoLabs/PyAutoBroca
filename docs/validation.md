@@ -24,7 +24,11 @@
   downstream path.
 
 Local detailed logs and screenshots are under ignored `preview/`. The rendered
-`dashboard.html` is retained as the private review artifact. No public hosting or
+`dashboard.html` is retained as the public source snapshot. No public hosting or
 scheduled refresh was configured. Heart reported YELLOW for one manifest/disk
 mismatch and STALE release rehearsal evidence; no active freeze. The human acknowledged the exact YELLOW reason and authorized feature-branch
 publication and PR creation on 2026-10-08. Merging remains a separate human act.
+
+The human subsequently requested public repository visibility. Tracked content
+was checked before publication; records originate from public assistant repos,
+and raw transcripts/private project data are excluded. Pages remains unconfigured.
