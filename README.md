@@ -15,7 +15,7 @@ python -m broca render --brain /path/to/PyAutoBrain --output dashboard.html
 python -m pytest -q
 ```
 
-Open [dashboard.html](dashboard.html). Brain must include the Broca theme registration.
+Open the [live dashboard](https://pyautolabs.github.io/PyAutoBroca/) or the local [dashboard.html](dashboard.html). Brain must include the Broca theme registration.
 The board uses the shared banner, check-in panel, navigation cards, collapsible
 sections, responsive sizing, light/dark styling and clipboard behavior. Its
 Update control is unavailable until an actual collection service is configured.
@@ -60,10 +60,12 @@ the public repo. Existing published history is not deleted or rewritten.
 
 ## Scope and privacy
 
-The repository and tracked dashboard snapshot are public. No Pages deployment
-or scheduled model campaign is enabled. Review imported records and receipts
+The repository and dashboard are public. GitHub Actions publishes the saved
+evidence at https://pyautolabs.github.io/PyAutoBroca/ on main updates or a manual
+`Publish dashboard` dispatch. Publication does not collect new evidence, change
+its refresh timestamp or run a model campaign. Review imported records and receipts
 before committing; retain raw transcripts and private project data elsewhere. [CHECKIN.md](CHECKIN.md) is the board's portable workflow.
 A broader campaign needs an explicit budget and execution environment. Project
-feedback ingestion, full wiki/API drift audits and hosted dashboard publication
+feedback ingestion, full wiki/API drift audits and additional publication formats
 are later extensions; the initial board provides inventory, historical results,
 provenance, freshness and next-action guidance.

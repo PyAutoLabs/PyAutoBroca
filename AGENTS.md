@@ -14,7 +14,9 @@ runs, then import summaries; no default paid or scheduled execution.
 
 This repository and its tracked dashboard snapshot are public. Review new records
 and receipts before committing them: keep local paths, raw transcripts, credentials
-and private project metadata outside this repository. GitHub Pages is not enabled.
+and private project metadata outside this repository. GitHub Pages uses `.github/workflows/pages.yml`: publish only the rendered site
+artifact, never the whole checkout. Deployments preserve collection timestamps
+and do not collect evidence or execute benchmarks.
 
 Board presentation reuses PyAutoBrain's shared components and contracts:
 https://github.com/PyAutoLabs/PyAutoBrain/blob/main/docs/standards.md
