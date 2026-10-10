@@ -37,3 +37,29 @@ For board changes, follow the applicable sizing, navigation and orchestration
 standards and reuse Brain’s shared components. Keep domain data, prompt meaning
 and approval boundaries with the board’s owner.
 <!-- repos_sync:standards:end -->
+
+<!-- repos_sync:deliverable:begin -->
+## Sessions end at their deliverable
+
+A session ends when it reports its deliverable — never arm anything that
+outlives the turn to wait for CI, a review or a merge: no `send_later`, no
+`subscribe_pr_activity`, no `CronCreate`, no `ScheduleWakeup`, no `/loop`, no
+`RemoteTrigger` create/update/run. Judge once, report, stop; the human re-runs
+`/prm` (or the batch review) when it is green. Measured: five batch members
+armed hourly check-ins on 2026-08-31, and a mobile `/prm` re-armed a 60-minute
+`send_later` hourly all night on 2026-09-03 with no task active, draining usage.
+<!-- repos_sync:deliverable:end -->
+
+<!-- repos_sync:filing:begin -->
+## Where to file
+
+Questions, help with code or an analysis, ideas, bug reports and results from a
+user or collaborator — or an agent acting for one — go to
+<https://github.com/orgs/PyAutoLabs/discussions> in the matching category
+(Help & Questions, Ideas & Proposals, Bugs & Errors, Show and tell;
+Announcements is maintainers-only), never to this repo's Issues. An agent never
+runs `gh issue create` for such a report: it drafts the title, category and
+body and hands them to the human (sessions cannot create Discussions). Only the
+development flow — Mind prompt → `/start_dev` → `/create_issue` → one issue per
+task → PR — opens issues here. Why: `PyAutoMind/policy/community_surface.md`.
+<!-- repos_sync:filing:end -->
