@@ -41,7 +41,7 @@ def render(root, assistant_evidence):
 <p>Technical validation belongs to Heart. A successful build or runnable example does not establish explanatory quality or scientific correctness.</p>
 <p>Next: inspect this resource's introduction, intended audience and known gaps with Broca before proposing a bounded documentation or evaluation task.</p></details>''')
     return ('<section id="communication"><h2>Communication resources</h2>'
-            + ''.join(f'<details id="communication-{kind}"><summary>{TYPES[kind]}</summary>' + ''.join(rows) + '</details>' for kind, rows in cards.items() if rows) + ('' if any(cards.values()) else '<p>No public communication resources configured.</p>') + '</section>')
+            + ''.join(f'<details id="communication-{kind}"><summary>{TYPES[kind]}</summary><div class="communication-resource-list">' + ''.join(rows) + '</div></details>' for kind, rows in cards.items() if rows) + ('' if any(cards.values()) else '<p>No public communication resources configured.</p>') + '</section>')
 
 
 def assistant_anchors(root, name, github):
