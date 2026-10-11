@@ -1,5 +1,5 @@
 import json
-from broca.resources import render
+from broca.resources import render, assistant_anchors
 
 
 def catalogue(tmp_path):
@@ -16,17 +16,16 @@ def test_tutorial_without_assistant_is_first_class_and_shared(tmp_path):
     page = render(tmp_path, {})
     assert page.count('id="resource-guide"') == 1
     assert 'One, Two' in page and 'quality not evaluated' in page
-    assert 'Tutorials' in page and 'Documentation' in page
+    assert 'How To' in page and 'Documentation' in page
     assert 'technical' in page.lower()
 
 
-def test_assistant_evidence_requires_exact_canonical_remote(tmp_path):
+def test_assistants_have_only_existing_section_aliases(tmp_path):
     data = catalogue(tmp_path); data['resources'][0]['relations'] = ['assistants']
     (tmp_path / 'resources.json').write_text(json.dumps(data))
-    evidence = {'github': 'Elsewhere/Guide', 'state': 'Recorded pass'}
-    assert 'Recorded pass' not in render(tmp_path, {'guide': evidence})
-    evidence.update(github='Example/Guide', collection='collected', collected_at='2026-01-01', revision='abc', observed_at='2026-01-01')
-    assert 'Recorded pass' in render(tmp_path, {'guide': evidence})
+    assert 'resource-guide' not in render(tmp_path, {})
+    assert assistant_anchors(tmp_path, 'guide', 'Elsewhere/Guide') == ''
+    assert 'resource-guide' in assistant_anchors(tmp_path, 'guide', 'Example/Guide')
 
 
 def test_missing_and_unsafe_inventory(tmp_path):
