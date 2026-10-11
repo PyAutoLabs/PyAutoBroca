@@ -31,6 +31,25 @@ from response quality. `--import-history` imports existing runner meta/score
 summaries without changing source files. Missing or conflicting evidence is
 reported, not discarded. A failed/partial refresh shows unknown freshness.
 
+## Scientist state feed
+
+The Pages artifact includes `index.html` and the shared `state.json`. To generate
+both locally without collecting evidence:
+
+```bash
+python -m broca render --brain /path/to/PyAutoBrain --output site/index.html \
+  --state-output site/state.json --repository YourOwner/YourCommunicationRepo \
+  --pages-url https://research.example/guides/
+python /path/to/PyAutoBrain/board/_state.py site/state.json
+```
+
+Supply the canonical `owner/repository` identity from your Mind map or publishing
+context; Pages uses `GITHUB_REPOSITORY`. No second identity map is stored here.
+The board URL comes from `assistants.json`'s `pages_url`, or the explicit override.
+An empty `assistants: []` supports a guides/workspaces-only instance. HTML-only
+rendering remains supported. See [feed semantics](docs/state-feed.md) for clocks,
+statuses and the absence of collection/evaluation claims.
+
 ## Storage and comparisons
 
 `records/<run_id>.json` is an immutable version-1 evaluation record;

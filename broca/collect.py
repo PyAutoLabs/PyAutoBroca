@@ -23,7 +23,7 @@ def git(repo, *args):
 def config(root):
     data = json.loads((Path(root) / "assistants.json").read_text())
     names = data.get("assistants", [])
-    if data.get("schema_version") != 1 or not names or len(names) != len(set(names)):
+    if data.get("schema_version") != 1 or not isinstance(names, list) or len(names) != len(set(names)):
         raise ValueError("invalid assistant configuration")
     if any(not isinstance(n, str) or not re.fullmatch(r"[A-Za-z0-9_]+", n) for n in names):
         raise ValueError("invalid assistant name")

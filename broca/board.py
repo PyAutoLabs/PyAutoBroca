@@ -34,6 +34,13 @@ def evidence_state(record, row, max_age, today=None):
     return "Recorded pass" if record["status"] == "passed" else "Needs interpretation"
 
 
+def latest_benchmark(runs):
+    """Day-precision ties retain the most conservative recorded outcome."""
+    latest_day = max((r["observed_at"][:10] for r in runs), default=None)
+    return max((r for r in runs if r["observed_at"][:10] == latest_day),
+               key=lambda r: {"passed": 0, "unscored": 1, "failed": 2}[r["status"]], default=None)
+
+
 def render(root, brain):
     theme = theme_from(brain)
     cfg = config(root)
@@ -52,9 +59,7 @@ def render(root, brain):
                       key=lambda r: (r["observed_at"], r["run_id"]))
         # Date-only imports cannot establish an order within a day. Show the
         # most conservative outcome from the latest day, not a random run ID.
-        latest_day = max((r["observed_at"][:10] for r in runs), default=None)
-        latest = max((r for r in runs if r["observed_at"][:10] == latest_day),
-                     key=lambda r: {"passed": 0, "unscored": 1, "failed": 2}[r["status"]], default=None)
+        latest = latest_benchmark(runs)
         state = evidence_state(latest, row, cfg["evidence_max_age_days"])
         collected = row.get("status", "unavailable")
         errors = row.get("errors", [])
