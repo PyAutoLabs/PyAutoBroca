@@ -37,6 +37,8 @@ def evidence_state(record, row, max_age, today=None):
 def render(root, brain):
     theme = theme_from(brain)
     cfg = config(root)
+    board_base = cfg.get("board_base_url")
+    footer = theme.boards_footer(theme.board_links(board_base, "broca"), "broca") if board_base else ""
     snapshot = load_snapshot(root)
     records = load_records(root, cfg["assistants"])
     rows = {r["assistant"]: r for r in snapshot["assistants"]}
@@ -120,5 +122,5 @@ th,td{text-align:left;vertical-align:top;padding:.6rem}td code{overflow-wrap:any
             '<section id="attention"><h2>Next actions</h2><ul>' + ''.join(attention) + '</ul></section>' +
             '<section id="history"><h2>Evaluation history</h2>' + table + '</section>' +
             '<section id="maintenance"><h2>Maintenance</h2><p>Committed-file inventory; these checks do not establish response quality or scientific correctness.</p><ul>' + ''.join(maintenance) + '</ul></section>' +
-            '<footer>Assistant evaluation evidence · collection age and evaluation age are separate.</footer></main><script>' + theme.JS + '</script></body></html>')
+            '<footer>Assistant evaluation evidence · collection age and evaluation age are separate.</footer>' + footer + '</main><script>' + theme.JS + '</script></body></html>')
     return theme.section_layout(page)
