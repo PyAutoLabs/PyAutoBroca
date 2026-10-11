@@ -69,3 +69,7 @@ A broader campaign needs an explicit budget and execution environment. Project
 feedback ingestion, full wiki/API drift audits and additional publication formats
 are later extensions; the initial board provides inventory, historical results,
 provenance, freshness and next-action guidance.
+
+The optional `board_base_url` in `assistants.json` enables the shared organ
+footer for this Scientist instance. It is the hosting root, without an organ
+repository suffix; membership and order come from Brain’s board registry.
