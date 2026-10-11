@@ -21,7 +21,7 @@ def link(url, label):
 def render(root, assistant_evidence):
     path = Path(root) / 'resources.json'
     if not path.is_file():
-        return '<section id="communication"><h2>Communication resources</h2><p>Public resource inventory unavailable.</p></section>'
+        return '<section id="communication"><h2>Guides &amp; Workspaces</h2><p>Public resource inventory unavailable.</p></section>'
     catalogue = json.loads(path.read_text())
     if catalogue.get('schema_version') != 1 or not isinstance(catalogue.get('resources'), list):
         raise ValueError('invalid public resource catalogue')
@@ -40,7 +40,7 @@ def render(root, assistant_evidence):
 <p>Used by: {esc(projects)}. Shared resources retain one identity; no assistant is required.</p>{details}
 <p>Technical validation belongs to Heart. A successful build or runnable example does not establish explanatory quality or scientific correctness.</p>
 <p>Next: inspect this resource's introduction, intended audience and known gaps with Broca before proposing a bounded documentation or evaluation task.</p></details>''')
-    return ('<section id="communication"><h2>Communication resources</h2>'
+    return ('<section id="communication"><h2>Guides &amp; Workspaces</h2>'
             + ''.join(f'<details id="communication-{kind}"><summary>{TYPES[kind]}</summary><div class="communication-resource-list">' + ''.join(rows) + '</div></details>' for kind, rows in cards.items() if rows) + ('' if any(cards.values()) else '<p>No public communication resources configured.</p>') + '</section>')
 
 

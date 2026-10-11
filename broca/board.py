@@ -108,7 +108,7 @@ def render(root, brain):
     prompt = (Path(root) / "CHECKIN.md").read_text()
     from .resources import render as render_resources
     resource_html = render_resources(root, assistant_evidence)
-    navigation = [{"href": "#communication", "label": "Communication resources"},
+    navigation = [{"href": "#communication", "label": "Guides & Workspaces"},
                   {"href": "#assistants", "label": "Assistants", "count": len(cfg["assistants"])},
                   {"href": "#attention", "label": "Next actions"},
                   {"href": "#history", "label": "Evaluations", "count": len(history)},
