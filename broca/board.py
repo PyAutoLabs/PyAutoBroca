@@ -44,6 +44,7 @@ def render(root, brain):
     rows = {r["assistant"]: r for r in snapshot["assistants"]}
     esc = lambda value: html.escape(str(value), quote=True)
     panels, attention, history, maintenance = [], [], [], []
+    from broca.resources import assistant_anchors
     assistant_evidence = {}
     for name in cfg["assistants"]:
         row = rows.get(name, {})
@@ -67,7 +68,7 @@ def render(root, brain):
                                     "collected_at": snapshot.get("refreshed_at") or "Unknown",
                                     "observed_at": when}
         definitions = len(row.get("benchmarks", [])) if collected != "unavailable" else "Unknown"
-        panels.append(f'<article class="assistant-card"><h3>{link}</h3><p><strong>{esc(state)}</strong></p>'
+        panels.append(f'<article class="assistant-card">{assistant_anchors(root, name, repo)}<h3>{link}</h3><p><strong>{esc(state)}</strong></p>'
                       f'<dl><dt>Latest evidence day</dt><dd>{esc(when)}</dd><dt>Runs recorded</dt><dd>{len(runs)}</dd>'
                       f'<dt>Current commit</dt><dd><code>{esc(revision)}</code></dd>'
                       f'<dt>Evaluated commit</dt><dd><code>{esc((latest["assistant_sha"] or "Unknown")[:12] if latest else "None")}</code></dd>'
@@ -129,6 +130,6 @@ th,td{text-align:left;vertical-align:top;padding:.6rem}td code{overflow-wrap:any
             '<section id="assistants"><h2>Assistants</h2><div class="assistant-grid">' + ''.join(panels) + '</div></section>' +
             '<section id="attention"><h2>Next actions</h2><ul>' + ''.join(attention) + '</ul></section>' +
             '<section id="history"><h2>Evaluation history</h2>' + table + '</section>' +
-            '<section id="maintenance"><h2>Maintenance</h2><p>Committed-file inventory; these checks do not establish response quality or scientific correctness.</p><ul>' + ''.join(maintenance) + '</ul></section>' +
-            '<footer>Assistant evaluation evidence · collection age and evaluation age are separate.</footer>' + footer + '</main><script>' + theme.JS + '</script></body></html>')
+            '<section id="maintenance"><h2>Maintenance</h2><ul>' + ''.join(maintenance) + '</ul></section>' +
+            '' + footer + '</main><script>' + theme.JS + '</script></body></html>')
     return theme.section_layout(page)
