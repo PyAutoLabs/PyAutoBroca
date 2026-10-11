@@ -121,6 +121,7 @@ def render(root, brain):
              + ''.join(row for _, row in sorted(history, key=lambda item: item[0], reverse=True)) + '</tbody></table></div>') if history else '<p>No benchmark runs recorded.</p>'
     page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>PyAutoBroca · Communication</title><style>' + theme.css("broca") + '''
+.communication-resource-list{margin-inline-start:.75rem;padding-inline-start:.75rem;border-inline-start:2px solid var(--line,#888)}
 .assistant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem}
 .assistant-card{border:1px solid var(--line,#888);border-radius:12px;padding:1rem;min-width:0}
 .assistant-card h3{margin-top:0}dl{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}dd{margin:0}
