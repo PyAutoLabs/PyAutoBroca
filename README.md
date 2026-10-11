@@ -1,8 +1,10 @@
 # PyAutoBroca
 
-Assistant evaluation history, upkeep evidence and a shared-format dashboard.
-Broca answers which assistant needs attention, what evidence supports that, and
-which evaluation would be useful next. Brain interprets; Mind tracks fixes.
+Communication and documentation resources, assistant evaluation history and upkeep evidence.
+The dashboard gives documentation, HowTo tutorials, workspaces and assistants
+their own project-linked dropdowns. Projects retain their source material;
+Brain interprets evidence and Mind tracks fixes. See the
+[communication contract](docs/communication.md) for ownership and catalogue refresh.
 
 ## Local check-in
 

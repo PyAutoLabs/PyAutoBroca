@@ -1,7 +1,9 @@
 # PyAutoBroca
 
-Broca owns assistant evaluation records, collection receipts and the operational
-board. Brain interprets evidence and routes changes; Mind owns development state;
+Broca covers communication and documentation: documentation, tutorials, user-facing
+workspaces and assistants are first-class resources. Projects own their source.
+Broca owns communication inventory views, assistant evaluation records, collection
+receipts and the operational board. Brain interprets evidence and routes changes; Mind owns development state;
 Cortex owns science records; Heart owns readiness. Public assistants remain
 independently usable and do not depend on Broca.
 
@@ -63,3 +65,7 @@ body and hands them to the human (sessions cannot create Discussions). Only the
 development flow — Mind prompt → `/start_dev` → `/create_issue` → one issue per
 task → PR — opens issues here. Why: `PyAutoMind/policy/community_surface.md`.
 <!-- repos_sync:filing:end -->
+
+Expanded resource ownership is documented in docs/communication.md. The public
+resources.json is generated from Scientist relationships and Mind identities; do
+not hand-maintain another resource registry or infer quality from a build result.

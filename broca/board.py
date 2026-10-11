@@ -44,6 +44,7 @@ def render(root, brain):
     rows = {r["assistant"]: r for r in snapshot["assistants"]}
     esc = lambda value: html.escape(str(value), quote=True)
     panels, attention, history, maintenance = [], [], [], []
+    assistant_evidence = {}
     for name in cfg["assistants"]:
         row = rows.get(name, {})
         runs = sorted((r for r in records if r["assistant"] == name and r["kind"] == "benchmark"),
@@ -61,6 +62,10 @@ def render(root, brain):
                 if re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo) else esc(name))
         when = latest["observed_at"] if latest else "No run recorded"
         revision = (row.get("revision") or "Unknown")[:12]
+        assistant_evidence[name] = {"state": state, "collection": collected,
+                                    "github": repo, "revision": revision,
+                                    "collected_at": snapshot.get("refreshed_at") or "Unknown",
+                                    "observed_at": when}
         definitions = len(row.get("benchmarks", [])) if collected != "unavailable" else "Unknown"
         panels.append(f'<article class="assistant-card"><h3>{link}</h3><p><strong>{esc(state)}</strong></p>'
                       f'<dl><dt>Latest evidence day</dt><dd>{esc(when)}</dd><dt>Runs recorded</dt><dd>{len(runs)}</dd>'
@@ -100,7 +105,10 @@ def render(root, brain):
                             f'<td>{esc(record["reason"] or "—")}<br>{esc(delta)}</td>'
                             f'<td><code>{esc(record["run_id"])}</code><br>{esc(record["source"]["path"])}</td></tr>'))
     prompt = (Path(root) / "CHECKIN.md").read_text()
-    navigation = [{"href": "#assistants", "label": "Assistants", "count": len(cfg["assistants"])},
+    from .resources import render as render_resources
+    resource_html = render_resources(root, assistant_evidence)
+    navigation = [{"href": "#communication", "label": "Communication resources"},
+                  {"href": "#assistants", "label": "Assistants", "count": len(cfg["assistants"])},
                   {"href": "#attention", "label": "Next actions"},
                   {"href": "#history", "label": "Evaluations", "count": len(history)},
                   {"href": "#maintenance", "label": "Maintenance"}]
@@ -111,13 +119,13 @@ def render(root, brain):
              '<table><thead><tr><th>Assistant / benchmark</th><th>Date / model</th><th>Outcome / score</th><th>Evidence / comparison</th><th>Record</th></tr></thead><tbody>'
              + ''.join(row for _, row in sorted(history, key=lambda item: item[0], reverse=True)) + '</tbody></table></div>') if history else '<p>No benchmark runs recorded.</p>'
     page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            '<title>PyAutoBroca · Assistants</title><style>' + theme.css("broca") + '''
+            '<title>PyAutoBroca · Communication</title><style>' + theme.css("broca") + '''
 .assistant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem}
 .assistant-card{border:1px solid var(--line,#888);border-radius:12px;padding:1rem;min-width:0}
 .assistant-card h3{margin-top:0}dl{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}dd{margin:0}
 .table-scroll{overflow-x:auto;max-width:100%}.table-scroll table{min-width:760px;width:100%}
 th,td{text-align:left;vertical-align:top;padding:.6rem}td code{overflow-wrap:anywhere}
-</style></head><body><main>''' + theme.hero("broca", "Assistants", navigation=navigation) + panel +
+</style></head><body><main>''' + theme.hero("broca", "Communication", navigation=navigation) + panel + resource_html +
             '<section id="assistants"><h2>Assistants</h2><div class="assistant-grid">' + ''.join(panels) + '</div></section>' +
             '<section id="attention"><h2>Next actions</h2><ul>' + ''.join(attention) + '</ul></section>' +
             '<section id="history"><h2>Evaluation history</h2>' + table + '</section>' +
