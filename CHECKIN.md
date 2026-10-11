@@ -20,3 +20,9 @@ Brain owns interpretation. Route accepted implementation work through Mind and
 start-dev. Cortex retains science records; Heart retains readiness. Keep raw
 transcripts, credentials and private project data out of public outputs. Finish
 with the current evidence and the next action. Do not arm background monitoring.
+
+Also inspect the communication resource inventory: documentation, HowTo tutorials,
+user-facing workspaces and assistants. Start with purpose/audience and source
+ownership. Keep missing evidence unknown, separate technical validation from
+explanatory quality, and route bounded improvements through Mind. Do not run
+paid evaluations, publish or send external messages as part of this check-in.
