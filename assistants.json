@@ -1,6 +1,8 @@
 {
   "schema_version": 1,
   "board_base_url": "https://pyautolabs.github.io",
+  "pages_url": "https://pyautolabs.github.io/PyAutoBroca/",
+  "collection_max_age_days": 30,
   "assistants": ["autocti_assistant", "autofit_assistant", "autogalaxy_assistant", "autolens_assistant"],
   "evidence_max_age_days": 30
 }

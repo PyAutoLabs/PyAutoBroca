@@ -13,6 +13,9 @@ def test_pages_publishes_only_rendered_snapshot_with_guarded_deployment():
     commands = '\n'.join(step.get('run', '') for step in build['steps'])
     assert 'broca --root PyAutoBroca check' in commands
     assert 'render --brain PyAutoBrain --output site/index.html' in commands
+    assert '--state-output site/state.json' in commands
+    assert '--repository "$GITHUB_REPOSITORY"' in commands
+    assert 'python PyAutoBrain/board/_state.py site/state.json' in commands
     assert 'refresh' not in commands and '--pilot' not in commands
     upload = next(step for step in build['steps'] if step.get('uses', '').startswith('actions/upload-pages-artifact@'))
     assert upload['with']['path'] == 'site'

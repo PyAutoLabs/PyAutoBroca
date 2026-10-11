@@ -23,6 +23,9 @@ def main(argv=None):
     board = sub.add_parser("render")
     board.add_argument("--brain", type=Path, required=True)
     board.add_argument("--output", type=Path, default=Path("dashboard.html"))
+    board.add_argument("--state-output", type=Path, help="also write the shared organ feed")
+    board.add_argument("--repository", help="canonical owner/repository from the publishing context")
+    board.add_argument("--pages-url", help="override the configured public board directory")
     args = parser.parse_args(argv)
     try:
         names = config(args.root)["assistants"]
@@ -41,9 +44,18 @@ def main(argv=None):
             return 0 if result["refreshed_at"] else 1
         else:
             from .board import render
+            state = None
+            if args.state_output:
+                if args.state_output.resolve() == args.output.resolve():
+                    raise ValueError("HTML and state output paths must differ")
+                from .state import build
+                state = build(args.root, args.brain, args.repository, args.pages_url)
             page = render(args.root, args.brain)
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_text(page)
+            if state is not None:
+                args.state_output.parent.mkdir(parents=True, exist_ok=True)
+                args.state_output.write_text(json.dumps(state, indent=2) + "\n")
             print(args.output)
     except (ValueError, OSError, KeyError, TypeError) as exc:
         print(f"Broca: {exc}", file=sys.stderr)
