@@ -13,6 +13,12 @@ def main(argv=None):
     parser.add_argument("--root", type=Path, default=Path.cwd(), help="Broca data checkout")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("check")
+    setup = sub.add_parser("setup", help="preview or resume empty local instance setup")
+    setup.add_argument("--repos", type=Path, required=True)
+    setup.add_argument("--repo", required=True, help="canonical repository key")
+    setup.add_argument("--pages-url", required=True)
+    setup.add_argument("--brain", type=Path, required=True)
+    setup.add_argument("--apply", action="store_true")
     add = sub.add_parser("ingest")
     add.add_argument("record", type=Path)
     collect = sub.add_parser("refresh")
@@ -28,6 +34,13 @@ def main(argv=None):
     board.add_argument("--pages-url", help="override the configured public board directory")
     args = parser.parse_args(argv)
     try:
+        if args.command == "setup":
+            from .setup import prepare, apply
+            prepared = prepare(args.root, args.repos, args.repo, args.pages_url, args.brain)
+            missing = apply(prepared) if args.apply else prepared[2]
+            print(("Created: " if args.apply else "Would create: ") + (", ".join(missing) or "nothing"))
+            print("Local setup only; publication and Scientist connection remain separate.")
+            return 0
         names = config(args.root)["assistants"]
         if args.command == "check":
             records = load_records(args.root, names)
