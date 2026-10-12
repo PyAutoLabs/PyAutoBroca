@@ -100,3 +100,6 @@ repository suffix; membership and order come from Brain’s board registry.
 Use the [local setup guide](docs/setup.md) to preview and create empty user-owned
 data, resume interrupted setup and validate a local board/feed. Publication and
 Scientist connection follow as explicit steps.
+
+Prepare a [standalone publication bundle](docs/publication.md) for an independent
+Pages repository, then validate its real feed through Scientist before connecting.

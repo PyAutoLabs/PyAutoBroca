@@ -19,6 +19,14 @@ def main(argv=None):
     setup.add_argument("--pages-url", required=True)
     setup.add_argument("--brain", type=Path, required=True)
     setup.add_argument("--apply", action="store_true")
+    publication = sub.add_parser("publication", help="prepare a static Pages bundle")
+    publication.add_argument("--repos", type=Path, required=True)
+    publication.add_argument("--repo", required=True)
+    publication.add_argument("--pages-url", required=True)
+    publication.add_argument("--brain", type=Path, required=True)
+    publication.add_argument("--output", type=Path, required=True)
+    publication.add_argument("--branch", default="main")
+    publication.add_argument("--apply", action="store_true")
     add = sub.add_parser("ingest")
     add.add_argument("record", type=Path)
     collect = sub.add_parser("refresh")
@@ -40,6 +48,16 @@ def main(argv=None):
             missing = apply(prepared) if args.apply else prepared[2]
             print(("Created: " if args.apply else "Would create: ") + (", ".join(missing) or "nothing"))
             print("Local setup only; publication and Scientist connection remain separate.")
+            return 0
+        if args.command == "publication":
+            from .publication import prepare, apply
+            prepared = prepare(args.root, args.repos, args.repo, args.pages_url,
+                               args.brain, args.output, args.branch)
+            if args.apply:
+                apply(prepared)
+            print(("Created: " if args.apply else "Would create: ") + str(prepared[0]))
+            print("\n".join(prepared[1]))
+            print("Review rendered content before publishing; no remote changes made.")
             return 0
         names = config(args.root)["assistants"]
         if args.command == "check":
@@ -63,7 +81,7 @@ def main(argv=None):
                     raise ValueError("HTML and state output paths must differ")
                 from .state import build
                 state = build(args.root, args.brain, args.repository, args.pages_url)
-            page = render(args.root, args.brain)
+            page = render(args.root, args.brain, repository=args.repository or "PyAutoLabs/PyAutoBroca")
             args.output.parent.mkdir(parents=True, exist_ok=True)
             args.output.write_text(page)
             if state is not None:

@@ -55,8 +55,9 @@ Project source and research records stay in their existing homes.
 
 ## Connect it to Scientist
 
-Publish only the reviewed HTML and feed from `site/` through a separately approved
-publication task. Local setup neither checks remote ownership nor creates a
+Use the [publication bundle guide](publication.md) to prepare reviewed HTML, feed
+and a minimal Pages workflow for an independent destination. Publish through a
+separately approved publication task. Local setup neither checks remote ownership nor creates a
 repository, publishes content, schedules upkeep or evaluates assistants.
 
 When the real HTTPS feed is available, use Scientist's existing
