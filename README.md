@@ -94,3 +94,9 @@ provenance, freshness and next-action guidance.
 The optional `board_base_url` in `assistants.json` enables the shared organ
 footer for this Scientist instance. It is the hosting root, without an organ
 repository suffix; membership and order come from Brain’s board registry.
+
+## Start an independent instance
+
+Use the [local setup guide](docs/setup.md) to preview and create empty user-owned
+data, resume interrupted setup and validate a local board/feed. Publication and
+Scientist connection follow as explicit steps.
