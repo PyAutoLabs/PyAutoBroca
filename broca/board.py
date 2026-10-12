@@ -41,7 +41,9 @@ def latest_benchmark(runs):
                key=lambda r: {"passed": 0, "unscored": 1, "failed": 2}[r["status"]], default=None)
 
 
-def render(root, brain):
+def render(root, brain, repository="PyAutoLabs/PyAutoBroca"):
+    if not isinstance(repository, str) or not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repository):
+        raise ValueError("invalid board repository identity")
     theme = theme_from(brain)
     cfg = config(root)
     board_base = cfg.get("board_base_url")
@@ -119,7 +121,7 @@ def render(root, brain):
                   {"href": "#history", "label": "Evaluations", "count": len(history)},
                   {"href": "#maintenance", "label": "Maintenance"}]
     panel = theme.orchestration_panel("broca-checkin", "Check in with Broca", "", prompt,
-                                     organ="broca", work_links=[{"label": "PyAutoBroca", "href": "https://github.com/PyAutoLabs/PyAutoBroca"}],
+                                     organ="broca", work_links=[{"label": repository.split("/")[-1], "href": "https://github.com/" + repository}],
                                      refreshed_at=snapshot.get("refreshed_at"), refresh_url=None)
     table = ('<div class="table-scroll" role="region" aria-label="Evaluation history; scroll for more columns" tabindex="0">'
              '<table><thead><tr><th>Assistant / benchmark</th><th>Date / model</th><th>Outcome / score</th><th>Evidence / comparison</th><th>Record</th></tr></thead><tbody>'
