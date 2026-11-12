@@ -103,3 +103,5 @@ Scientist connection follow as explicit steps.
 
 Prepare a [standalone publication bundle](docs/publication.md) for an independent
 Pages repository, then validate its real feed through Scientist before connecting.
+
+<sub><i><a href="https://www.youtube.com/watch?v=5G8YV0hItnk">how to say just how i feel</a></i></sub>
